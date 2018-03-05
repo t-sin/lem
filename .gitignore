@@ -16,3 +16,6 @@ autom4te.cache
 install-sh
 missing
 bin/
+
+lem-frontend-xcb
+lem-jsonrpc
