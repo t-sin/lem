@@ -1,4 +1,5 @@
 (defpackage :lem-interface
+  (:use)
   (:nicknames :lem-if)
   (:export :invoke
            :display-background-mode
