@@ -68,9 +68,6 @@
 (defmethod lem-if:print-modeline ((implementation capi) view x y string attribute)
   (draw-string-in-modeline view x y string attribute))
 
-(defmethod lem-if:move-cursor ((implementation capi) view x y)
-  nil)
-
 (defmethod lem-if:redraw-view-after ((implementation capi) view focus-window-p)
   nil)
 

@@ -373,9 +373,6 @@
   (charms/ll:wmove (ncurses-view-scrwin view) y x)
   (charms/ll:wclrtobot (ncurses-view-scrwin view)))
 
-(defmethod lem-if:move-cursor ((implementation ncurses) view x y)
-  (charms/ll:wmove (ncurses-view-scrwin view) y x))
-
 (defmethod lem-if:redraw-view-after ((implementation ncurses) view focus-window-p)
   (let ((attr (attribute-to-bits 'modeline)))
     (charms/ll:attron attr)
@@ -388,9 +385,7 @@
   (when (ncurses-view-modeline-scrwin view)
     (charms/ll:wnoutrefresh (ncurses-view-modeline-scrwin view)))
   (when focus-window-p
-    (lem-if:move-cursor implementation
-                           view
-                           *cursor-x* *cursor-y*))
+    (charms/ll:wmove (ncurses-view-scrwin view) *cursor-y* *cursor-x*))
   (charms/ll:wnoutrefresh (ncurses-view-scrwin view)))
 
 (defmethod lem-if:update-display ((implementation ncurses))

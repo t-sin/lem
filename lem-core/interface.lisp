@@ -38,7 +38,6 @@
 (define-interface lem-if:print-modeline (view x y string attribute))
 (define-interface lem-if:clear-eol (view x y))
 (define-interface lem-if:clear-eob (view x y))
-(define-interface lem-if:move-cursor (view x y))
 (define-interface lem-if:redraw-window (window force))
 (define-interface lem-if:redraw-view-after (view focus-window-p))
 (define-interface lem-if:update-display ())
