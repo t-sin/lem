@@ -1,6 +1,7 @@
 (in-package :lem)
 
-(export '(implementation
+(export '(get-window-view
+          implementation
           set-foreground
           set-background
           display-width
@@ -97,6 +98,9 @@
   last-buffer-name
   last-buffer-modified-tick
   (horizontal-scroll-start 0))
+
+(defun get-window-view (window)
+  (screen-view (window-screen window)))
 
 (defun make-screen (window x y width height use-modeline)
   (when use-modeline
