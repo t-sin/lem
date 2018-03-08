@@ -20,7 +20,11 @@
            :redraw-window
            :redraw-view-after
            :update-display
-           :scroll))
+           :scroll
+
+           :init-window
+           :split-window
+           :delete-window))
 
 (defpackage :lem
   (:use :cl :lem-base)

@@ -307,7 +307,8 @@
                      (window-max-width)
                      (window-max-height)
                      t))
-  (setf (window-tree) (current-window)))
+  (setf (window-tree) (current-window))
+  (lem-if:init-window (implementation) (current-window)))
 
 (defun window-recenter (window)
   (line-start
@@ -472,7 +473,8 @@
                          (- (window-height window) height)
                          t)))
       (setf (window-%height window) height)
-      (split-window-after window new-window :vsplit))))
+      (split-window-after window new-window :vsplit)
+      (lem-if:split-window (implementation) window new-window nil))))
 
 (defun split-window-horizontally (window &optional width)
   (unless (minibuffer-window-p window)
@@ -493,7 +495,8 @@
                          (window-height window)
                          t)))
       (setf (window-%width window) width)
-      (split-window-after window new-window :hsplit))))
+      (split-window-after window new-window :hsplit)
+      (lem-if:split-window (implementation) window new-window t))))
 
 (defun split-window-sensibly (window)
   (if (< *window-sufficient-width* (window-%width window))
@@ -588,7 +591,8 @@
       (declare (ignore getter2))
       (if (null node2)
           (setf (window-tree) (funcall another-getter))
-          (funcall setter2 (funcall another-getter))))))
+          (funcall setter2 (funcall another-getter)))))
+  (lem-if:delete-window (implementation) window))
 
 (defun delete-window (window)
   (%delete-window window)

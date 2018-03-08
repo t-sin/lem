@@ -44,6 +44,10 @@
 (define-interface lem-if:update-display ())
 (define-interface lem-if:scroll (view n))
 
+(define-interface lem-if:init-window (window))
+(define-interface lem-if:split-window (old-window new-window horizontal))
+(define-interface lem-if:delete-window (window))
+
 (defvar *implementation*)
 
 (defvar *print-start-x* 0)
